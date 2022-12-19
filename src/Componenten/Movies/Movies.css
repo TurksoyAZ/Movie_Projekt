@@ -1,0 +1,116 @@
+.container {
+  width: 100%;
+  background-color: rgb(233, 224, 213);
+  display: flex;
+  flex-direction: column;
+  padding: 2.5vw;
+  gap: 2vw;
+}
+
+.article1 {
+  text-align: center;
+  padding: 30px;
+}
+
+.article1 > h1 {
+  font-size: 4vw;
+  letter-spacing: 5px;
+}
+
+.article2 {
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  row-gap: 25px;
+}
+
+.boxs {
+  width: 17vw;
+  background-color: rgb(77, 76, 76);
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  padding: 2.2vw;
+  color: rgb(249, 195, 108);
+  border: 2px solid rgb(255, 162, 0);
+  border-radius: 20px;
+  box-shadow: black 0 0 10px;
+}
+@media only screen and (max-width: 1000px) {
+  .boxs {
+    width: 28vw;
+  }
+}
+@media only screen and (max-width: 700px) {
+  .boxs {
+    width: 42vw;
+  }
+}
+@media only screen and (max-width: 500px) {
+  .boxs {
+    width: 77vw;
+    height: 65vh;
+    padding: 4vw;
+  }
+}
+
+ul {
+  font-size: 1.6vw;
+  list-style: none;
+  margin-top: 2vw;
+}
+@media only screen and (max-width: 1000px) {
+  ul {
+    font-size: 2.7vw;
+  }
+}
+@media only screen and (max-width: 700px) {
+  ul {
+    font-size: 4vw;
+  }
+}
+@media only screen and (max-width: 500px) {
+  ul {
+    font-size: 6vw;
+  }
+}
+
+.ul2 {
+  color: rgb(214, 131, 53);
+  font-size: 1.5vw;
+}
+@media only screen and (max-width: 1000px) {
+  .ul2 {
+    font-size: 2.5vw;
+  }
+}
+@media only screen and (max-width: 700px) {
+  .ul2 {
+    font-size: 3.8vw;
+  }
+}
+@media only screen and (max-width: 500px) {
+  .ul2 {
+    font-size: 5.8vw;
+  }
+}
+
+/* Article Button */
+@media only screen and (max-width: 500px) {
+  .articleButton {
+    text-align: center;
+  }
+}
+
+button {
+  font-size: 1.8vw;
+  padding: 8px 15px;
+  margin: 10px;
+  box-shadow: black 0 0 10px;
+}
+@media only screen and (max-width: 500px) {
+  button {
+    font-size: 3vw;
+  }
+}
