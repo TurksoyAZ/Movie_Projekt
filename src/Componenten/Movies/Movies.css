@@ -25,6 +25,11 @@
   row-gap: 25px;
 }
 
+input {
+  padding: 10px;
+  font-size: 2.2vw;
+}
+
 .boxs {
   width: 17vw;
   background-color: rgb(77, 76, 76);
