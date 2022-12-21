@@ -10,8 +10,8 @@ const Movies = () => {
 
 
     useEffect(() => {
-        setData(movies);
-    }, []);
+        setData(sort);
+    }, [sort]);
 
     // sort A-Z
     const sortForAz = () => {
