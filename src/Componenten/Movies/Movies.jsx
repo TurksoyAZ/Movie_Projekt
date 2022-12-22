@@ -1,42 +1,44 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import "./Movies.css";
 
 import { movies } from "./MoviesData";
 
 const Movies = () => {
-    const [data, setData] = useState([]);
-    const [input, setInput] = useState("");
+
     const [sort, setSort] = useState(movies);
+    const [input, setInput] = useState([]);
 
+    // ausführliche Schreibweise von sort() (verbose spelling of sort())
+    // // sort A-Z
+    // const sortForAz = () => {
+    //     setSort([...sort.sort((a, b) => (a.title > b.title ? 1 : -1))]);
+    // };
+    // // sort Z-A
+    // const sortForZa = () => {
+    //     setSort([...sort.sort((a, b) => (a.title < b.title ? 1 : -1))]);
+    // };
+    // // sort Rate
+    // const sortForRate = () => {
+    //     setSort([...sort.sort((a, b) => b.rate - a.rate)]);
+    // };
+    // // sort Data Ascending
+    // const sortForDataAscending = () => {
+    //     setSort([...sort.sort((a, b) => a.year - b.year)]);
+    // };
+    // // sort Data Descending
+    // const sortForDataDescending = () => {
+    //     setSort([...sort.sort((a, b) => b.year - a.year)]);
+    // };
+    //
+    //
 
-    useEffect(() => {
-        setData(sort);
-    }, [sort]);
-
-    // sort A-Z
-    const sortForAz = () => {
-        setSort([...movies.sort((a, b) => (a.title > b.title ? 1 : -1))]);
-    };
-    // sort Z-A
-    const sortForZa = () => {
-        setSort([...movies.sort((a, b) => (a.title < b.title ? 1 : -1))]);
-    };
-    // sort Rate
-    const sortForRate = () => {
-        setSort([...movies.sort((a, b) => b.rate - a.rate)]);
-    };
-    // sort Data Ascending
-    const sortForDataAscending = () => {
-        setSort([...movies.sort((a, b) => a.year - b.year)]);
-    };
-    // sort Data Descending
-    const sortForDataDescending = () => {
-        setSort([...movies.sort((a, b) => b.year - a.year)]);
-    };
 
     // for Search filter()
     function search(p) {
         return p.filter((e) => e.title.toLowerCase().includes(input));
+    }
+    function change(p) {
+        setInput(p.target.value);
     }
 
     return (
@@ -46,22 +48,22 @@ const Movies = () => {
             </article>
 
             <article className="articleButton">
-                <button onClick={sortForDataAscending}>Sort by Date Ascending</button>
-                <button onClick={sortForDataDescending}>Sort by Date Descending</button>
-                <button onClick={sortForRate}>Best Rate</button>
-                <button onClick={sortForAz}>A-Z</button>
-                <button onClick={sortForZa}>Z-A</button>
+                <button onClick={() => setSort([...sort.sort((a, b) => a.year - b.year)])}>Sort by Date Ascending</button>
+                <button onClick={() => setSort([...sort.sort((a, b) => b.year - a.year)])}>Sort by Date Descending</button>
+                <button onClick={() => setSort([...sort.sort((a, b) => b.rate - a.rate)])}>Best Rate</button>
+                <button onClick={() => setSort([...sort.sort((a, b) => (a.title > b.title ? 1 : -1))])}>A-Z</button>
+                <button onClick={() => setSort([...sort.sort((a, b) => (a.title < b.title ? 1 : -1))])}>Z-A</button>
             </article>
 
             <input
                 type="text"
                 placeholder="Search"
                 value={input}
-                onChange={(e) => setInput(e.target.value)}
+                onChange={change}
             />
 
             <article className="article2">
-                {search(data).map((e, i) => {
+                {search(sort).map((e, i) => {
                     return (
                         <div className="boxs" key={i}>
                             <ul className="ul1">
